@@ -1,426 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zetyl | Clear Digital Visibility</title>
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background:#070b12;
-      color:#fff;
-      line-height:1.6;
-    }
-    a { text-decoration:none; color:inherit; }
-    .container { width:92%; max-width:1180px; margin:auto; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zetyl | Clear Digital Visibility</title>
 
-    header {
-      height:78px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .logo { display:flex; align-items:center; gap:10px; font-size:24px; font-weight:900; }
-    .zmark {
-      width:38px; height:38px; border-radius:8px;
-      background:linear-gradient(135deg,#ffd400,#e6a800);
-      color:#070b12; display:flex; align-items:center; justify-content:center;
-      font-weight:900; font-size:26px; transform:skew(-8deg);
-    }
-    nav { display:flex; gap:28px; align-items:center; font-size:14px; color:#cbd5e1; }
-    .nav-btn, .btn {
-      background:#ffd400; color:#070b12; padding:14px 22px;
-      border-radius:6px; font-weight:800; display:inline-block;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Arial;background:#060b14;color:#fff;}
 
-    .hero {
-      min-height:680px;
-      display:grid;
-      grid-template-columns:1fr 1.15fr;
-      gap:45px;
-      align-items:center;
-      position:relative;
-      overflow:hidden;
-    }
-    .hero:before {
-      content:"";
-      position:absolute; right:0; top:80px;
-      width:520px; height:520px;
-      background:radial-gradient(circle,rgba(255,212,0,.22),transparent 65%);
-      z-index:-1;
-    }
-    .tag {
-      display:inline-block;
-      color:#ffd400;
-      border:1px solid rgba(255,212,0,.45);
-      padding:7px 13px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:800;
-      margin-bottom:22px;
-      letter-spacing:.03em;
-    }
-    h1 {
-      font-size:58px;
-      line-height:1.04;
-      letter-spacing:-2px;
-      margin-bottom:24px;
-    }
-    h1 span { color:#ffd400; }
-    .hero p { color:#cbd5e1; max-width:560px; font-size:17px; margin-bottom:28px; }
-    .hero-actions { display:flex; gap:20px; align-items:center; margin-bottom:38px; }
-    .play { display:flex; align-items:center; gap:10px; color:#fff; font-size:14px; }
-    .play-circle {
-      width:46px; height:46px; border:1px solid #fff; border-radius:50%;
-      display:flex; align-items:center; justify-content:center;
-    }
+/* CONTAINER */
+.container{width:90%;max-width:1200px;margin:auto;}
 
-    .trust-row { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; max-width:620px; }
-    .trust-item { color:#cbd5e1; font-size:12px; }
-    .trust-item strong { display:block; color:#fff; font-size:13px; margin-bottom:3px; }
+/* HEADER */
+header{
+display:flex;justify-content:space-between;align-items:center;
+padding:20px 0;border-bottom:1px solid rgba(255,255,255,.08);
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:bold;}
+.logo-box{
+background:#ffd400;color:#000;padding:6px 10px;border-radius:6px;
+font-weight:bold;font-size:18px;
+}
+nav a{margin:0 12px;color:#ccc;font-size:14px;}
+.btn{
+background:#ffd400;color:#000;padding:12px 18px;
+border-radius:6px;font-weight:bold;
+}
 
-    .device-wrap { position:relative; min-height:430px; }
-    .laptop {
-      position:absolute; right:20px; top:20px;
-      width:560px; height:350px;
-      background:linear-gradient(145deg,#111827,#020617);
-      border:1px solid rgba(255,255,255,.18);
-      border-radius:22px;
-      box-shadow:0 30px 80px rgba(0,0,0,.65),0 0 45px rgba(255,212,0,.18);
-      padding:18px;
-      transform:rotate(2deg);
-      animation:float 5s ease-in-out infinite;
-    }
-    .screen {
-      height:100%; border-radius:15px;
-      background:
-        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.55)),
-        url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=80');
-      background-size:cover;
-      background-position:center;
-      padding:32px;
-    }
-    .screen small { color:#ffd400; font-weight:800; }
-    .screen h3 { font-size:31px; line-height:1.1; margin:15px 0; }
-    .screen p { color:#d1d5db; max-width:290px; font-size:13px; }
-    .mini-btn { margin-top:18px; background:#ffd400; color:#000; padding:10px 14px; border-radius:4px; display:inline-block; font-size:12px; font-weight:800; }
+/* HERO */
+.hero{
+display:grid;grid-template-columns:1fr 1fr;
+align-items:center;padding:80px 0;position:relative;
+}
+.hero h1{
+font-size:56px;line-height:1.1;margin-bottom:20px;
+}
+.hero span{color:#ffd400;}
+.hero p{color:#bbb;margin-bottom:25px;max-width:500px;}
 
-    .phone {
-      position:absolute; right:0; bottom:35px;
-      width:160px; height:285px;
-      background:#05070c;
-      border:1px solid rgba(255,255,255,.2);
-      border-radius:28px;
-      box-shadow:0 25px 60px rgba(0,0,0,.7),0 0 30px rgba(255,212,0,.25);
-      padding:14px;
-      animation:float 6s ease-in-out infinite;
-    }
-    .phone-screen {
-      height:100%; border-radius:20px;
-      background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.65)),url('https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=700&q=80');
-      background-size:cover; padding:18px 12px;
-    }
-    .phone-screen h4 { font-size:18px; line-height:1.15; margin-top:50px; }
-    .phone-screen .mini-btn { font-size:10px; }
+.glow{
+position:absolute;
+width:500px;height:500px;
+background:radial-gradient(circle,rgba(255,212,0,.2),transparent 70%);
+right:0;top:100px;z-index:-1;
+}
 
-    @keyframes float {
-      0%,100% { transform:translateY(0) rotate(2deg); }
-      50% { transform:translateY(-10px) rotate(2deg); }
-    }
+/* DEVICE */
+.device{
+position:relative;
+}
+.laptop{
+background:#111;border-radius:20px;
+padding:20px;width:100%;
+box-shadow:0 20px 60px rgba(0,0,0,.6);
+animation:float 5s infinite;
+}
+.phone{
+position:absolute;right:-40px;bottom:-40px;
+width:150px;background:#000;border-radius:20px;
+padding:10px;
+box-shadow:0 15px 40px rgba(0,0,0,.7);
+animation:float 6s infinite;
+}
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
 
-    section { padding:78px 0; }
-    .white { background:#f8fafc; color:#0f172a; }
-    .dark-section { background:#08101b; }
-    .section-title { text-align:center; margin-bottom:45px; }
-    .section-title small { color:#d4a900; font-weight:900; letter-spacing:.05em; }
-    .section-title h2 { font-size:34px; line-height:1.15; }
+/* TRUST */
+.trust{
+display:flex;gap:30px;margin-top:20px;font-size:13px;color:#aaa;
+}
 
-    .services {
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:25px;
-      text-align:center;
-    }
-    .service {
-      padding:25px 18px;
-      border-right:1px solid #e5e7eb;
-    }
-    .service:last-child { border-right:none; }
-    .icon { font-size:34px; margin-bottom:14px; }
-    .service h3 { font-size:15px; margin-bottom:10px; }
-    .service p { color:#475569; font-size:13px; }
+/* SCROLL */
+.scroll{text-align:center;margin-top:40px;color:#888;font-size:12px;}
+.scroll:after{
+content:"";display:block;width:20px;height:30px;
+border:2px solid #aaa;border-radius:20px;margin:10px auto;
+}
 
-    .process {
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:28px;
-    }
-    .step {
-      padding:28px;
-      border-left:1px solid rgba(255,255,255,.12);
-    }
-    .num { color:#ffd400; font-size:22px; font-weight:900; }
-    .step h3 { margin:8px 0; }
-    .step p { color:#cbd5e1; font-size:14px; }
+/* SECTION */
+section{padding:70px 0;}
+.white{background:#f4f4f4;color:#000;text-align:center;}
+.section-title{margin-bottom:40px;}
+.section-title small{color:#c49b00;font-weight:bold;}
+.section-title h2{font-size:32px;margin-top:10px;}
 
-    .concepts {
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:24px;
-    }
-    .concept-card img {
-      width:100%; height:160px; object-fit:cover; border-radius:10px;
-      box-shadow:0 15px 35px rgba(0,0,0,.15);
-    }
-    .concept-card h3 { font-size:15px; margin-top:12px; }
-    .ready { color:#16803c; font-size:13px; margin-top:5px; }
+/* SERVICES */
+.services{display:flex;justify-content:space-between;gap:20px;}
+.service{width:20%;font-size:14px;}
+.service h3{margin:10px 0;}
 
-    .impact-box {
-      background:#07101b;
-      color:#fff;
-      border-radius:14px;
-      padding:38px;
-      display:grid;
-      grid-template-columns:1.4fr repeat(4,1fr);
-      gap:25px;
-      align-items:center;
-    }
-    .impact-box h2 { font-size:30px; line-height:1.15; }
-    .impact-box p { color:#cbd5e1; font-size:14px; }
-    .impact-item { border-left:1px solid rgba(255,255,255,.15); padding-left:22px; }
-    .impact-item strong { color:#fff; display:block; margin-bottom:8px; }
+/* PROCESS */
+.process{display:flex;justify-content:space-between;position:relative;}
+.process::before{
+content:"";position:absolute;top:50%;left:0;width:100%;
+height:1px;background:#333;
+}
+.step{width:23%;text-align:center;}
+.step span{color:#ffd400;font-weight:bold;}
 
-    .testimonials {
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:25px;
-    }
-    .testimonial {
-      background:#fff;
-      color:#0f172a;
-      padding:25px;
-      border-radius:12px;
-      box-shadow:0 12px 35px rgba(0,0,0,.08);
-    }
-    .stars { color:#f5b800; margin-bottom:10px; }
+/* CARDS */
+.cards{display:flex;gap:20px;}
+.card{
+background:#fff;color:#000;border-radius:10px;overflow:hidden;
+transition:.3s;width:25%;
+}
+.card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.2);}
+.card img{width:100%;height:150px;object-fit:cover;}
+.card p{padding:10px;font-size:14px;}
 
-    .faq-grid {
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-    }
-    .faq {
-      background:#0f172a;
-      border:1px solid rgba(255,255,255,.1);
-      padding:18px 20px;
-      border-radius:8px;
-      display:flex;
-      justify-content:space-between;
-    }
+/* IMPACT */
+.impact{
+background:#020814;padding:40px;border-radius:12px;
+display:flex;justify-content:space-between;
+}
+.impact div{width:22%;}
 
-    .cta {
-      background:linear-gradient(90deg,#111827,#8a6a00,#111827);
-      padding:45px 0;
-    }
-    .cta .container {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:25px;
-    }
+/* CTA */
+.cta{
+background:linear-gradient(90deg,#000,#b38b00,#000);
+padding:40px;text-align:center;
+}
+.cta h2{margin-bottom:20px;}
 
-    footer { background:#05070c; padding:55px 0 25px; color:#cbd5e1; }
-    .footer-grid {
-      display:grid;
-      grid-template-columns:1.4fr 1fr 1fr 1fr;
-      gap:30px;
-      margin-bottom:35px;
-    }
-    footer h4 { color:#fff; margin-bottom:12px; }
-    footer p, footer li { font-size:14px; color:#94a3b8; list-style:none; margin-bottom:7px; }
-    .copyright { text-align:center; border-top:1px solid rgba(255,255,255,.08); padding-top:20px; color:#64748b; }
+/* FOOTER */
+footer{text-align:center;padding:30px;color:#aaa;font-size:14px;}
 
-    @media(max-width:900px){
-      nav { display:none; }
-      .hero { grid-template-columns:1fr; padding-top:40px; }
-      h1 { font-size:42px; }
-      .device-wrap { min-height:360px; }
-      .laptop { position:relative; width:100%; right:auto; }
-      .phone { right:10px; }
-      .services,.process,.concepts,.testimonials,.impact-box,.footer-grid { grid-template-columns:1fr; }
-      .service { border-right:none; border-bottom:1px solid #e5e7eb; }
-      .cta .container { flex-direction:column; text-align:center; }
-      .faq-grid { grid-template-columns:1fr; }
-    }
-  </style>
+</style>
 </head>
 
 <body>
-  <div class="container">
-    <header>
-      <div class="logo"><div class="zmark">Z</div> ZETYL</div>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#work">Our Work</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact" class="nav-btn">Request a Preview →</a>
-      </nav>
-    </header>
 
-    <section class="hero">
-      <div>
-        <div class="tag">WEBSITES THAT DRIVE BOOKINGS & INQUIRIES</div>
-        <h1>Bringing Established Businesses Into Clear <span>Digital Visibility.</span></h1>
-        <p>Zetyl builds polished, search-ready websites that help established businesses earn trust, receive more inquiries, and turn visitors into bookings.</p>
+<div class="container">
+<header>
+<div class="logo"><div class="logo-box">Z</div> ZETYL</div>
+<nav>
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Process</a>
+<a href="#">Work</a>
+<a href="#">FAQ</a>
+<a href="#" class="btn">Request a Preview →</a>
+</nav>
+</header>
 
-        <div class="hero-actions">
-          <a href="#contact" class="btn">Request a Preview →</a>
-          <div class="play"><div class="play-circle">▶</div><span>See how it works<br><small>2 min overview</small></span></div>
-        </div>
+<div class="hero">
+<div>
+<h1>Bringing Established Businesses Into Clear <span>Digital Visibility.</span></h1>
+<p>Zetyl builds polished, search-ready websites that help established businesses earn trust, receive more inquiries, and turn visitors into bookings.</p>
 
-        <div class="trust-row">
-          <div class="trust-item"><strong>Preview First</strong>See before you decide</div>
-          <div class="trust-item"><strong>No Long-Term Contracts</strong>One-time payment</div>
-          <div class="trust-item"><strong>Built for Results</strong>More inquiries & bookings</div>
-          <div class="trust-item"><strong>Secure & Reliable</strong>Fast, safe, always online</div>
-        </div>
-      </div>
+<a class="btn">Request a Preview →</a>
 
-      <div class="device-wrap">
-        <div class="laptop">
-          <div class="screen">
-            <small>Sparkle Clean</small>
-            <h3>Professional Cleaning Services You Can Rely On</h3>
-            <p>Reliable cleaning for homes and offices.</p>
-            <span class="mini-btn">Book a Service</span>
-          </div>
-        </div>
-        <div class="phone">
-          <div class="phone-screen">
-            <h4>A Cleaner Space, A Better Place to Be.</h4>
-            <span class="mini-btn">Book Now</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+<div class="trust">
+<div>✔ Preview First</div>
+<div>✔ No Contracts</div>
+<div>✔ Built for Results</div>
+<div>✔ Secure</div>
+</div>
 
-  <section class="white" id="services">
-    <div class="container">
-      <div class="section-title">
-        <small>WE BUILD WEBSITES THAT WORK FOR YOUR BUSINESS</small>
-        <h2>Websites That Drive Bookings & Inquiries</h2>
-      </div>
+<div class="scroll">Scroll to explore</div>
+</div>
 
-      <div class="services">
-        <div class="service"><div class="icon">🖥️</div><h3>Custom Website Design</h3><p>Modern, professional websites that reflect your brand and build instant trust.</p></div>
-        <div class="service"><div class="icon">📅</div><h3>Booking & Contact Integration</h3><p>Make it easy for customers to book services or get in touch with you.</p></div>
-        <div class="service"><div class="icon">🔎</div><h3>SEO & Local Optimization</h3><p>We structure your site so customers can find you on Google and search engines.</p></div>
-        <div class="service"><div class="icon">⚡</div><h3>Fast, Secure & Reliable</h3><p>Speed-optimized, mobile-friendly websites that are secure and built to last.</p></div>
-        <div class="service"><div class="icon">🎧</div><h3>Ongoing Support</h3><p>We’re here when you need updates, help, or guidance as your business grows.</p></div>
-      </div>
-    </div>
-  </section>
+<div class="device">
+<div class="laptop">
+<img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7" width="100%">
+</div>
+<div class="phone">
+<img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac" width="100%">
+</div>
+</div>
 
-  <section class="dark-section" id="process">
-    <div class="container">
-      <div class="section-title">
-        <small>OUR PROCESS</small>
-        <h2>Preview First. Decide With Confidence.</h2>
-      </div>
+<div class="glow"></div>
+</div>
+</div>
 
-      <div class="process">
-        <div class="step"><div class="num">01</div><h3>We Discover</h3><p>We learn about your business, your goals, and your customers.</p></div>
-        <div class="step"><div class="num">02</div><h3>We Build a Live Preview</h3><p>We build a live, interactive preview of your website for you.</p></div>
-        <div class="step"><div class="num">03</div><h3>You Review & Decide</h3><p>You explore the preview and share feedback or approve.</p></div>
-        <div class="step"><div class="num">04</div><h3>We Build & Launch</h3><p>We build, test, and launch your website — ready for your customers.</p></div>
-      </div>
-    </div>
-  </section>
+<section class="white">
+<div class="container">
+<div class="section-title">
+<small>WHAT WE BUILD</small>
+<h2>Websites That Drive Bookings & Inquiries</h2>
+</div>
 
-  <section class="white" id="work">
-    <div class="container">
-      <div class="section-title">
-        <small>CONCEPT PREVIEWS</small>
-        <h2>Real Website Concepts. Built for Real Businesses.</h2>
-        <p>Each concept is a real website preview — built to show the quality and results we deliver.</p>
-      </div>
+<div class="services">
+<div class="service"><h3>Custom Website</h3><p>Modern and professional</p></div>
+<div class="service"><h3>Booking System</h3><p>Easy customer booking</p></div>
+<div class="service"><h3>SEO</h3><p>Get found on Google</p></div>
+<div class="service"><h3>Fast & Secure</h3><p>Reliable performance</p></div>
+<div class="service"><h3>Support</h3><p>We help anytime</p></div>
+</div>
+</div>
+</section>
 
-      <div class="concepts">
-        <div class="concept-card"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"><h3>Auto Detailing (Concept)</h3><div class="ready">✓ Ready to deploy</div></div>
-        <div class="concept-card"><img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=800&q=80"><h3>Landscaping (Concept)</h3><div class="ready">✓ Ready to deploy</div></div>
-        <div class="concept-card"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80"><h3>Barbershop (Concept)</h3><div class="ready">✓ Ready to deploy</div></div>
-        <div class="concept-card"><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80"><h3>Cleaning Service (Concept)</h3><div class="ready">✓ Ready to deploy</div></div>
-      </div>
-    </div>
-  </section>
+<section>
+<div class="container">
+<div class="section-title">
+<small>OUR PROCESS</small>
+<h2>Preview First. Decide With Confidence.</h2>
+</div>
 
-  <section class="white">
-    <div class="container">
-      <div class="impact-box">
-        <div>
-          <small style="color:#ffd400;font-weight:900;">THE REAL IMPACT OF A PROFESSIONAL WEBSITE</small>
-          <h2>A strong website does more than just look good.</h2>
-          <p>It builds trust, opens doors, and makes it easy for the right customers to choose you.</p>
-        </div>
-        <div class="impact-item"><strong>More Visibility</strong><p>Show up where customers are searching.</p></div>
-        <div class="impact-item"><strong>More Trust</strong><p>Look professional. Build confidence.</p></div>
-        <div class="impact-item"><strong>More Inquiries</strong><p>Make it easy for customers to reach you.</p></div>
-        <div class="impact-item"><strong>More Bookings</strong><p>Turn visitors into paying customers.</p></div>
-      </div>
-    </div>
-  </section>
+<div class="process">
+<div class="step"><span>01</span><p>Discover</p></div>
+<div class="step"><span>02</span><p>Preview</p></div>
+<div class="step"><span>03</span><p>Review</p></div>
+<div class="step"><span>04</span><p>Launch</p></div>
+</div>
+</div>
+</section>
 
-  <section class="white">
-    <div class="container">
-      <div class="section-title"><small>WHAT OUR CLIENTS SAY</small></div>
-      <div class="testimonials">
-        <div class="testimonial"><div class="stars">★★★★★</div><p>“Zetyl built a website that looks amazing and brings in new customers every week.”</p><br><strong>— Marcus J.</strong><p>Auto Detailing Business</p></div>
-        <div class="testimonial"><div class="stars">★★★★★</div><p>“The live preview process gave me total confidence. Highly professional team.”</p><br><strong>— Sarah L.</strong><p>Landscaping Business</p></div>
-        <div class="testimonial"><div class="stars">★★★★★</div><p>“Our booking system works perfectly and saves us so much time.”</p><br><strong>— David R.</strong><p>Cleaning Service Owner</p></div>
-      </div>
-    </div>
-  </section>
+<section class="white">
+<div class="container">
+<div class="section-title">
+<small>CONCEPTS</small>
+<h2>Real Website Concepts</h2>
+</div>
 
-  <section class="dark-section" id="faq">
-    <div class="container">
-      <div class="section-title"><small>COMMON QUESTIONS</small><h2>Quick answers to common questions.</h2></div>
-      <div class="faq-grid">
-        <div class="faq"><span>How does the live preview work?</span><strong>+</strong></div>
-        <div class="faq"><span>Do I need to provide content and images?</span><strong>+</strong></div>
-        <div class="faq"><span>How long does it take to build my website?</span><strong>+</strong></div>
-        <div class="faq"><span>Is there a monthly fee?</span><strong>+</strong></div>
-      </div>
-    </div>
-  </section>
+<div class="cards">
+<div class="card"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70"><p>Auto Detailing</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1558904541-efa843a96f01"><p>Landscaping</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a"><p>Barbershop</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac"><p>Cleaning</p></div>
+</div>
+</div>
+</section>
 
-  <section class="cta" id="contact">
-    <div class="container">
-      <div>
-        <h2>Ready to bring your business into clear digital visibility?</h2>
-        <p>Request your live preview today and see the difference Zetyl can make.</p>
-      </div>
-      <a href="mailto:hello@zetyl.com" class="btn">Request a Preview →</a>
-    </div>
-  </section>
+<section>
+<div class="container">
+<div class="impact">
+<div><h3>More Visibility</h3></div>
+<div><h3>More Trust</h3></div>
+<div><h3>More Inquiries</h3></div>
+<div><h3>More Bookings</h3></div>
+</div>
+</div>
+</section>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="logo"><div class="zmark">Z</div> ZETYL</div>
-          <p>We help established service businesses build professional websites that bring more visibility, trust, and customer inquiries.</p>
-        </div>
-        <div><h4>Quick Links</h4><ul><li>Home</li><li>Services</li><li>Process</li><li>Our Work</li><li>FAQ</li></ul></div>
-        <div><h4>Services</h4><ul><li>Website Design</li><li>Booking Integration</li><li>SEO Optimization</li><li>Maintenance & Support</li></ul></div>
-        <div><h4>Contact Us</h4><p>hello@zetyl.com</p><p>Worcester, MA</p><p>zetyl.com</p></div>
-      </div>
-      <div class="copyright">© 2026 Zetyl. All rights reserved.</div>
-    </div>
-  </footer>
+<section class="cta">
+<h2>Ready to bring your business into clear digital visibility?</h2>
+<a class="btn">Request a Preview →</a>
+</section>
+
+<footer>
+© 2026 Zetyl. All rights reserved.
+</footer>
+
 </body>
 </html>
