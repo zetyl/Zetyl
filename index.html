@@ -3,847 +3,1479 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Zetyl | Clear Digital Visibility</title>
-  <meta name="description" content="Zetyl builds polished, search-ready websites that help established businesses earn trust, receive more inquiries, and turn visitors into bookings." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #070b12;
-      color: #fff;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    a { text-decoration: none; color: inherit; }
-    .container { width: 92%; max-width: 1180px; margin: auto; }
-    .gold { color: #ffd400; }
-
-    header {
-      height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      position: relative;
-      z-index: 10;
+    :root{
+      --gold:#F0C93A;
+      --gold-dark:#C89A10;
+      --navy:#060A11;
+      --navy-2:#0A1120;
+      --text:#0D1628;
+      --muted:#64748B;
+      --soft:#F8F9FC;
+      --line:#E8ECF4;
+      --white:#FFFFFF;
+      --serif:'Cormorant Garamond', Georgia, serif;
+      --sans:'DM Sans', Arial, sans-serif;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 24px;
-      font-weight: 900;
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:var(--sans);
+      background:var(--white);
+      color:var(--text);
+      overflow-x:hidden;
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1220px,90%);margin:auto}
+
+    header{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:1000;
+      height:76px;
+      padding:0 5%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(13,22,40,.08);
     }
 
-    .zmark {
-      width: 38px;
-      height: 38px;
-      border-radius: 8px;
-      background: linear-gradient(135deg,#ffd400,#e6a800);
-      color: #070b12;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      font-size: 26px;
-      transform: skew(-8deg);
-      box-shadow: 0 0 26px rgba(255,212,0,.35);
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-family:var(--serif);
+      font-size:27px;
+      font-weight:700;
+      color:var(--text);
+      letter-spacing:.02em;
     }
 
-    nav {
-      display: flex;
-      gap: 26px;
-      align-items: center;
-      font-size: 14px;
-      color: #cbd5e1;
+    .zmark{
+      width:40px;height:40px;
+      border-radius:9px;
+      background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--navy);
+      font-family:var(--serif);
+      font-weight:700;
+      font-size:22px;
+      transform:skewX(-7deg);
+      box-shadow:0 12px 30px rgba(240,201,58,.32);
     }
 
-    nav a:hover { color: #ffd400; }
-
-    .nav-btn, .btn {
-      background: #ffd400;
-      color: #070b12;
-      padding: 14px 22px;
-      border-radius: 6px;
-      font-weight: 900;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 30px rgba(255,212,0,.25);
-      transition: .25s ease;
+    nav{
+      display:flex;
+      align-items:center;
+      gap:28px;
+      font-size:13px;
+      font-weight:600;
+      color:#526174;
+      letter-spacing:.03em;
     }
 
-    .btn:hover, .nav-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 42px rgba(255,212,0,.35);
+    nav a{transition:.25s ease}
+    nav a:hover{color:var(--text)}
+
+    .nav-cta{
+      color:var(--navy)!important;
+      background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+      padding:11px 20px;
+      border-radius:6px;
+      box-shadow:0 12px 30px rgba(240,201,58,.25);
     }
 
-    .hero {
-      min-height: 690px;
-      display: grid;
-      grid-template-columns: 1fr 1.18fr;
-      gap: 44px;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding: 42px 0 72px;
+    .btn-gold{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+      color:var(--navy);
+      padding:16px 32px;
+      border-radius:6px;
+      font-size:14px;
+      font-weight:800;
+      letter-spacing:.03em;
+      box-shadow:0 14px 36px rgba(240,201,58,.28);
+      transition:.25s ease;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      right: -80px;
-      top: 70px;
-      width: 650px;
-      height: 650px;
-      background: radial-gradient(circle, rgba(255,212,0,.22), transparent 65%);
-      z-index: -3;
+    .btn-gold:hover{
+      transform:translateY(-3px);
+      box-shadow:0 22px 52px rgba(240,201,58,.42);
     }
 
-    .gold-ring {
-      position: absolute;
-      right: 25px;
-      top: 155px;
-      width: 670px;
-      height: 285px;
-      border: 4px solid rgba(255,212,0,.72);
-      border-radius: 50%;
-      transform: rotate(-13deg);
-      box-shadow: 0 0 45px rgba(255,212,0,.42), inset 0 0 25px rgba(255,212,0,.18);
-      z-index: -1;
-    }
-
-    .tag {
-      display: inline-flex;
-      color: #ffd400;
-      border: 1px solid rgba(255,212,0,.45);
-      background: rgba(255,212,0,.06);
-      padding: 7px 13px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 900;
-      margin-bottom: 22px;
-      letter-spacing: .04em;
-    }
-
-    h1 {
-      font-size: clamp(46px, 5vw, 68px);
-      line-height: 1.04;
-      letter-spacing: -2px;
-      margin-bottom: 24px;
-    }
-
-    h1 span { color: #ffd400; }
-
-    .hero p {
-      color: #cbd5e1;
-      max-width: 560px;
-      font-size: 17px;
-      margin-bottom: 28px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      margin-bottom: 38px;
-    }
-
-    .play {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .play small {
-      display: block;
-      color: #cbd5e1;
-      font-weight: 500;
-    }
-
-    .play-circle {
-      width: 46px;
-      height: 46px;
-      border: 1px solid rgba(255,255,255,.75);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .trust-row {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 18px;
-      max-width: 670px;
-    }
-
-    .trust-item {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: #cbd5e1;
-      font-size: 12px;
-    }
-
-    .trust-item span {
-      width: 30px;
-      height: 30px;
-      border-radius: 9px;
-      border: 1px solid rgba(255,212,0,.45);
-      color: #ffd400;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex: 0 0 auto;
-      background: rgba(255,212,0,.05);
-      box-shadow: 0 0 16px rgba(255,212,0,.13);
-    }
-
-    .trust-item strong {
-      display: block;
-      color: #fff;
-      font-size: 13px;
-      margin-bottom: 3px;
-    }
-
-    .device-wrap {
-      position: relative;
-      min-height: 455px;
-    }
-
-    .laptop {
-      position: absolute;
-      right: 35px;
-      top: 25px;
-      width: 620px;
-      height: 390px;
-      background: linear-gradient(145deg,#111827,#020617);
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 24px;
-      box-shadow: 0 42px 105px rgba(0,0,0,.72), 0 0 56px rgba(255,212,0,.22);
-      padding: 18px;
-      transform: perspective(1000px) rotateY(-7deg) rotateX(3deg);
-      animation: floatLaptop 6s ease-in-out infinite;
-      z-index: 2;
-    }
-
-    .laptop::after {
-      content: "";
-      position: absolute;
-      left: 13%;
-      right: 10%;
-      bottom: -22px;
-      height: 26px;
-      background: linear-gradient(90deg,#05070c,#1f2937,#05070c);
-      border-radius: 0 0 22px 22px;
-    }
-
-    @keyframes floatLaptop {
-      0%,100% { transform: perspective(1000px) rotateY(-7deg) rotateX(3deg) translateY(0); }
-      50% { transform: perspective(1000px) rotateY(-7deg) rotateX(3deg) translateY(-10px); }
-    }
-
-    .screen {
-      height: 100%;
-      border-radius: 16px;
+    .hero{
+      min-height:100vh;
+      padding-top:76px;
+      display:flex;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
       background:
-        linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.32)),
-        url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1400&q=80');
-      background-size: cover;
-      background-position: center;
-      padding: 32px;
-      position: relative;
-      overflow: hidden;
+        radial-gradient(circle at 78% 40%, rgba(240,201,58,.17), transparent 31%),
+        linear-gradient(180deg,#ffffff 0%,#f8f9fc 100%);
     }
 
-    .screen::before {
-      content: "Sparkle Clean      Home   Services   About   Gallery   Contact";
-      position: absolute;
-      top: 18px;
-      left: 28px;
-      right: 24px;
-      color: #f8fafc;
-      font-size: 11px;
-      opacity: .9;
-      word-spacing: 12px;
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image:
+        linear-gradient(rgba(13,22,40,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13,22,40,.035) 1px, transparent 1px);
+      background-size:64px 64px;
+      pointer-events:none;
     }
 
-    .screen small {
-      display: block;
-      color: #ffd400;
-      font-weight: 900;
-      margin-top: 42px;
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:68px;
+      align-items:center;
+      width:min(1220px,90%);
+      margin:auto;
+      padding:70px 0 90px;
     }
 
-    .screen h3 {
-      font-size: 33px;
-      line-height: 1.08;
-      margin: 15px 0 12px;
-      max-width: 370px;
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--gold-dark);
+      border:1px solid rgba(200,154,16,.25);
+      background:rgba(240,201,58,.08);
+      padding:8px 15px;
+      border-radius:999px;
+      margin-bottom:30px;
     }
 
-    .screen p {
-      color: #d1d5db;
-      max-width: 310px;
-      font-size: 14px;
-      margin-bottom: 18px;
+    .eyebrow::before{
+      content:"";
+      width:7px;height:7px;
+      border-radius:50%;
+      background:var(--gold);
+      box-shadow:0 0 10px var(--gold);
     }
 
-    .mini-btn {
-      margin-top: 12px;
-      background: #ffd400;
-      color: #000;
-      padding: 10px 14px;
-      border-radius: 4px;
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 900;
+    h1{
+      font-family:var(--serif);
+      font-size:clamp(54px,5.1vw,82px);
+      line-height:1.02;
+      letter-spacing:-1.2px;
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:26px;
     }
 
-    .screen-icons {
-      position: absolute;
-      left: 28px;
-      right: 28px;
-      bottom: 18px;
-      display: grid;
-      grid-template-columns: repeat(5,1fr);
-      gap: 8px;
-      color: #dbe2ea;
-      font-size: 11px;
+    h1 em{
+      font-style:italic;
+      background:linear-gradient(90deg,var(--gold),var(--gold-dark));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
     }
 
-    .screen-icons b {
-      color: #ffd400;
-      display: block;
-      font-size: 14px;
-      margin-bottom: 2px;
+    .hero-desc{
+      color:#526174;
+      font-size:17px;
+      line-height:1.75;
+      max-width:520px;
+      margin-bottom:42px;
+      font-weight:400;
     }
 
-    .phone {
-      position: absolute;
-      right: -10px;
-      bottom: 34px;
-      width: 170px;
-      height: 315px;
-      background: #05070c;
-      border: 1px solid rgba(255,255,255,.22);
-      border-radius: 32px;
-      box-shadow: 0 30px 70px rgba(0,0,0,.85), 0 0 36px rgba(255,212,0,.32);
-      padding: 12px;
-      animation: floatPhone 5.5s ease-in-out infinite;
-      z-index: 3;
+    .hero-btns{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      margin-bottom:42px;
     }
 
-    @keyframes floatPhone {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-13px); }
+    .btn-text{
+      display:inline-flex;
+      align-items:center;
+      gap:11px;
+      color:#334155;
+      font-size:14px;
+      font-weight:700;
+      transition:.25s ease;
     }
 
-    .phone-screen {
-      height: 100%;
-      border-radius: 23px;
+    .btn-text:hover{gap:15px;color:var(--text)}
+
+    .play-circle{
+      width:45px;height:45px;
+      border:1px solid rgba(13,22,40,.25);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:13px;
+    }
+
+    .hero-trust{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+      max-width:620px;
+    }
+
+    .trust-item{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      font-size:12px;
+      color:#64748B;
+    }
+
+    .trust-icon{
+      width:28px;height:28px;
+      border-radius:8px;
+      border:1px solid rgba(200,154,16,.28);
+      background:rgba(240,201,58,.08);
+      color:var(--gold-dark);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      font-size:13px;
+    }
+
+    .trust-item strong{
+      display:block;
+      color:var(--text);
+      font-size:13px;
+      margin-bottom:2px;
+    }
+
+    .device-wrap{
+      position:relative;
+      height:500px;
+    }
+
+    .gold-ring{
+      position:absolute;
+      right:6px;
+      top:115px;
+      width:660px;
+      height:285px;
+      border:4px solid rgba(240,201,58,.65);
+      border-radius:50%;
+      transform:rotate(-13deg);
+      box-shadow:0 0 50px rgba(240,201,58,.35), inset 0 0 25px rgba(240,201,58,.18);
+      z-index:0;
+    }
+
+    .laptop-shell{
+      position:absolute;
+      left:0;
+      top:28px;
+      width:100%;
+      max-width:660px;
+      height:420px;
+      background:linear-gradient(145deg,#111827,#030712);
+      border:1px solid rgba(13,22,40,.22);
+      border-radius:26px;
+      padding:16px;
+      box-shadow:0 45px 105px rgba(13,22,40,.26),0 0 75px rgba(240,201,58,.18);
+      transform:perspective(1100px) rotateY(-5deg) rotateX(2deg);
+      animation:floatL 7s ease-in-out infinite;
+      z-index:2;
+    }
+
+    .laptop-shell::after{
+      content:"";
+      position:absolute;
+      left:14%;
+      right:10%;
+      bottom:-21px;
+      height:22px;
+      background:linear-gradient(90deg,#05070c,#1f2937,#05070c);
+      border-radius:0 0 18px 18px;
+    }
+
+    @keyframes floatL{
+      0%,100%{transform:perspective(1100px) rotateY(-5deg) rotateX(2deg) translateY(0)}
+      50%{transform:perspective(1100px) rotateY(-5deg) rotateX(2deg) translateY(-12px)}
+    }
+
+    .screen-wrap{
+      height:100%;
+      border-radius:17px;
+      overflow:hidden;
+      background:#07101c;
+    }
+
+    .browser-bar{
+      background:#0c1525;
+      height:31px;
+      display:flex;
+      align-items:center;
+      padding:0 13px;
+      gap:7px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .bd{width:9px;height:9px;border-radius:50%}
+    .bd.r{background:#ff5f57}.bd.y{background:#febc2e}.bd.g{background:#28c840}
+
+    .url-bar{
+      flex:1;
+      height:16px;
+      border-radius:4px;
+      background:rgba(255,255,255,.06);
+      margin-left:8px;
+      display:flex;
+      align-items:center;
+      padding:0 9px;
+      font-size:9px;
+      color:rgba(255,255,255,.35);
+    }
+
+    .screen-body{
+      height:calc(100% - 31px);
       background:
-        linear-gradient(rgba(0,0,0,.48),rgba(0,0,0,.70)),
-        url('https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80');
-      background-size: cover;
-      background-position: center;
-      padding: 18px 13px;
+        linear-gradient(135deg,rgba(6,10,17,.88),rgba(13,22,40,.78)),
+        url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&q=80&fit=crop');
+      background-size:cover;
+      background-position:center;
+      padding:28px 31px;
+      position:relative;
+      overflow:hidden;
     }
 
-    .phone-screen small { color: #ffd400; font-weight: 900; }
-    .phone-screen h4 { font-size: 20px; line-height: 1.12; margin-top: 68px; margin-bottom: 16px; }
-    .phone-screen .mini-btn { font-size: 10px; }
-
-    .scroll-cue {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      color: #ffd400;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .06em;
-      z-index: 5;
+    .screen-body::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image:repeating-linear-gradient(-45deg, rgba(240,201,58,.025) 0px, rgba(240,201,58,.025) 1px, transparent 1px, transparent 44px);
     }
 
-    .mouse {
-      width: 22px;
-      height: 36px;
-      border: 2px solid rgba(255,255,255,.7);
-      border-radius: 20px;
-      margin: 0 auto 8px;
-      position: relative;
+    .sc-top{
+      position:relative;
+      z-index:2;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:28px;
     }
 
-    .mouse::before {
-      content: "";
-      position: absolute;
-      top: 7px;
-      left: 50%;
-      width: 4px;
-      height: 7px;
-      background: #ffd400;
-      border-radius: 99px;
-      transform: translateX(-50%);
-      animation: scrollDot 1.4s infinite;
+    .sc-brand{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      color:#fff;
     }
 
-    @keyframes scrollDot {
-      0% { opacity: 1; transform: translate(-50%,0); }
-      100% { opacity: 0; transform: translate(-50%,12px); }
+    .sc-z{
+      width:24px;height:24px;
+      border-radius:5px;
+      background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+      color:#000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:var(--serif);
+      font-size:12px;
+      font-weight:900;
+      transform:skewX(-5deg);
     }
 
-    section { padding: 78px 0; }
-    .white { background: #f8fafc; color: #0f172a; }
-    .dark-section { background: #08101b; }
-    .section-title { text-align: center; margin-bottom: 45px; }
-    .section-title small { color: #d4a900; font-weight: 900; letter-spacing: .05em; }
-    .section-title h2 { font-size: 34px; line-height: 1.15; }
-    .section-title p { color: #64748b; margin-top: 8px; }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(5,1fr);
-      gap: 0;
-      text-align: center;
+    .sc-name{
+      font-family:var(--serif);
+      font-size:13px;
+      font-weight:700;
     }
 
-    .service {
-      padding: 25px 18px;
-      border-right: 1px solid #e5e7eb;
-      transition: .25s ease;
+    .sc-links{
+      display:flex;
+      gap:12px;
+      color:rgba(255,255,255,.48);
+      font-size:8px;
     }
 
-    .service:last-child { border-right: none; }
-    .service:hover { transform: translateY(-8px); }
-
-    .icon {
-      width: 66px;
-      height: 66px;
-      border-radius: 50%;
-      background: #eef2f7;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-      font-size: 30px;
+    .sc-nav-btn{
+      font-size:8px;
+      color:#000;
+      background:var(--gold);
+      padding:5px 10px;
+      border-radius:4px;
+      font-weight:900;
     }
 
-    .service h3 { font-size: 15px; margin-bottom: 10px; }
-    .service p { color: #475569; font-size: 13px; }
-
-    .process {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 28px;
-      position: relative;
+    .sc-label{
+      position:relative;
+      z-index:2;
+      color:var(--gold);
+      font-size:9px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:8px;
     }
 
-    .process::before {
-      content: "";
-      position: absolute;
-      top: 61px;
-      left: 9%;
-      right: 9%;
-      height: 1px;
-      background: linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent);
+    .sc-title{
+      position:relative;
+      z-index:2;
+      font-family:var(--serif);
+      font-size:30px;
+      line-height:1.08;
+      font-weight:700;
+      color:#fff;
+      max-width:330px;
+      margin-bottom:10px;
     }
 
-    .step {
-      padding: 28px;
-      border-left: 1px solid rgba(255,255,255,.12);
-      position: relative;
+    .sc-sub{
+      position:relative;
+      z-index:2;
+      color:rgba(255,255,255,.58);
+      font-size:10px;
+      line-height:1.6;
+      max-width:250px;
+      margin-bottom:16px;
     }
 
-    .step::after {
-      content: "→";
-      position: absolute;
-      right: -20px;
-      top: 52px;
-      color: rgba(255,255,255,.55);
-      font-size: 22px;
+    .sc-btn{
+      position:relative;
+      z-index:2;
+      display:inline-block;
+      background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+      color:#000;
+      padding:8px 15px;
+      border-radius:4px;
+      font-size:9px;
+      font-weight:900;
     }
 
-    .step:last-child::after { display: none; }
-
-    .step-circle {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,.26);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 22px;
-      font-size: 28px;
-      background: #08101b;
+    .sc-services{
+      position:absolute;
+      left:31px;
+      right:31px;
+      bottom:18px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:8px;
+      z-index:2;
     }
 
-    .num { color: #ffd400; font-size: 22px; font-weight: 900; }
-    .step h3 { margin: 8px 0; }
-    .step p { color: #cbd5e1; font-size: 14px; }
-
-    .concepts {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 24px;
+    .sc-srv{
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:7px;
+      padding:9px 10px;
     }
 
-    .concept-card { transition: .3s ease; }
-    .concept-card:hover { transform: translateY(-8px); }
-
-    .concept-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 15px 35px rgba(0,0,0,.15);
-      transition: .3s ease;
+    .sc-srv span{
+      display:block;
+      font-size:14px;
+      margin-bottom:3px;
     }
 
-    .concept-card:hover img { transform: scale(1.04); }
-
-    .concept-card h3 { font-size: 15px; margin-top: 12px; }
-    .ready { color: #16803c; font-size: 13px; margin-top: 5px; }
-
-    .concept-btn { text-align: center; margin-top: 34px; }
-    .concept-btn a {
-      background: #fff;
-      border: 1px solid #d4a900;
-      color: #0f172a;
+    .sc-srv small{
+      display:block;
+      font-size:8px;
+      color:rgba(255,255,255,.45);
     }
 
-    .impact-box {
-      background: #07101b;
-      color: #fff;
-      border-radius: 14px;
-      padding: 38px;
-      display: grid;
-      grid-template-columns: 1.4fr repeat(4,1fr);
-      gap: 25px;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 55px rgba(15,23,42,.16);
+    .sc-srv b{
+      font-size:9px;
+      color:#fff;
     }
 
-    .impact-box::after {
-      content: "";
-      position: absolute;
-      right: -70px;
-      bottom: -80px;
-      width: 300px;
-      height: 220px;
-      background: radial-gradient(circle,rgba(255,212,0,.25),transparent 70%);
+    .phone-shell{
+      position:absolute;
+      right:-8px;
+      bottom:15px;
+      width:158px;
+      height:302px;
+      background:linear-gradient(145deg,#111827,#030712);
+      border:1px solid rgba(13,22,40,.20);
+      border-radius:31px;
+      padding:9px;
+      box-shadow:0 35px 80px rgba(13,22,40,.35),0 0 42px rgba(240,201,58,.26);
+      animation:floatP 6s ease-in-out infinite;
+      z-index:4;
     }
 
-    .impact-box h2 { font-size: 30px; line-height: 1.15; }
-    .impact-box p { color: #cbd5e1; font-size: 14px; }
-
-    .impact-item {
-      border-left: 1px solid rgba(255,255,255,.15);
-      padding-left: 22px;
-      position: relative;
-      z-index: 2;
+    @keyframes floatP{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-14px)}
     }
 
-    .impact-icon {
-      display: block;
-      color: #ffd400;
-      font-size: 30px;
-      margin-bottom: 8px;
+    .phone-notch{
+      width:44px;height:6px;
+      background:#05070c;
+      border-radius:4px;
+      margin:0 auto 7px;
     }
 
-    .impact-item strong { color: #fff; display: block; margin-bottom: 8px; }
-
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 25px;
+    .phone-screen{
+      height:calc(100% - 13px);
+      border-radius:22px;
+      overflow:hidden;
+      background:linear-gradient(160deg,#0a1525,#111e35);
+      padding:15px 12px;
+      position:relative;
     }
 
-    .testimonial {
-      background: #fff;
-      color: #0f172a;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 12px 35px rgba(0,0,0,.08);
+    .ps-label{
+      font-size:8px;
+      color:var(--gold);
+      font-weight:800;
+      letter-spacing:.07em;
     }
 
-    .stars { color: #f5b800; margin-bottom: 10px; }
-
-    .faq-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
+    .ps-title{
+      font-family:var(--serif);
+      font-size:18px;
+      line-height:1.16;
+      color:#fff;
+      font-weight:700;
+      margin:52px 0 10px;
     }
 
-    .faq {
-      background: #0f172a;
-      border: 1px solid rgba(255,255,255,.1);
-      padding: 18px 20px;
-      border-radius: 8px;
-      display: flex;
-      justify-content: space-between;
-      color: #e5e7eb;
+    .ps-sub{
+      font-size:8px;
+      color:rgba(255,255,255,.45);
+      line-height:1.5;
+      margin-bottom:13px;
     }
 
-    .cta {
-      background: linear-gradient(90deg,#111827,#8a6a00,#111827);
-      padding: 45px 0;
-      position: relative;
-      overflow: hidden;
+    .ps-btn{
+      display:inline-block;
+      background:var(--gold);
+      color:#000;
+      padding:6px 11px;
+      border-radius:4px;
+      font-size:8px;
+      font-weight:900;
     }
 
-    .cta::after {
-      content: "";
-      position: absolute;
-      right: -70px;
-      top: -50px;
-      width: 360px;
-      height: 180px;
-      background: radial-gradient(circle,rgba(255,212,0,.34),transparent 70%);
+    .ps-stats{
+      position:absolute;
+      left:12px;
+      right:12px;
+      bottom:14px;
     }
 
-    .cta .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 25px;
-      position: relative;
-      z-index: 2;
+    .ps-stat{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      color:rgba(255,255,255,.52);
+      font-size:8px;
+      margin-bottom:6px;
     }
 
-    footer {
-      background: #05070c;
-      padding: 55px 0 25px;
-      color: #cbd5e1;
+    .ps-dot{
+      width:6px;height:6px;
+      border-radius:50%;
+      background:var(--gold);
     }
 
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 30px;
-      margin-bottom: 35px;
+    .float-card{
+      position:absolute;
+      right:-22px;
+      top:28px;
+      z-index:5;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(240,201,58,.38);
+      border-radius:12px;
+      padding:15px 18px;
+      box-shadow:0 20px 50px rgba(13,22,40,.14),0 0 28px rgba(240,201,58,.12);
+      animation:cardF 4.5s ease-in-out infinite;
     }
 
-    footer h4 { color: #fff; margin-bottom: 12px; }
-    footer p, footer li { font-size: 14px; color: #94a3b8; list-style: none; margin-bottom: 7px; }
-    .copyright { text-align: center; border-top: 1px solid rgba(255,255,255,.08); padding-top: 20px; color: #64748b; }
+    @keyframes cardF{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-8px)}
+    }
 
-    @media(max-width:900px) {
-      nav { display: none; }
-      .hero { grid-template-columns: 1fr; padding-top: 40px; }
-      h1 { font-size: 42px; }
-      .gold-ring { right: -120px; width: 520px; }
-      .device-wrap { min-height: 390px; }
-      .laptop { position: relative; width: 100%; right: auto; }
-      .phone { right: 10px; bottom: -10px; }
-      .trust-row, .services, .process, .concepts, .testimonials, .impact-box, .footer-grid { grid-template-columns: 1fr; }
-      .service { border-right: none; border-bottom: 1px solid #e5e7eb; }
-      .process::before, .step::after { display: none; }
-      .impact-item { border-left: none; border-top: 1px solid rgba(255,255,255,.15); padding-left: 0; padding-top: 18px; }
-      .cta .container { flex-direction: column; text-align: center; }
-      .faq-grid { grid-template-columns: 1fr; }
+    .fc-row{
+      display:flex;
+      align-items:center;
+      gap:7px;
+      margin-bottom:5px;
+    }
+
+    .fc-dot{
+      width:8px;height:8px;
+      border-radius:50%;
+      background:#22c55e;
+      box-shadow:0 0 9px #22c55e;
+    }
+
+    .fc-text{
+      color:var(--text);
+      font-size:11px;
+      font-weight:700;
+    }
+
+    .fc-num{
+      font-family:var(--serif);
+      font-size:27px;
+      font-weight:700;
+      color:var(--gold-dark);
+      line-height:1;
+    }
+
+    .fc-sub{
+      color:var(--muted);
+      font-size:10px;
+      margin-top:3px;
+    }
+
+    section{padding:100px 0}
+
+    .section-label{
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--gold-dark);
+      margin-bottom:14px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .section-label::before{
+      content:"";
+      width:28px;
+      height:1.5px;
+      background:var(--gold);
+    }
+
+    .section-head{margin-bottom:60px}
+
+    .section-h2{
+      font-family:var(--serif);
+      font-size:clamp(36px,3.6vw,54px);
+      line-height:1.08;
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:12px;
+    }
+
+    .section-sub{
+      color:var(--muted);
+      font-size:16px;
+      font-weight:400;
+      max-width:560px;
+      line-height:1.75;
+    }
+
+    .services-section{background:var(--white)}
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      border:1.5px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      background:#fff;
+    }
+
+    .srv-card{
+      padding:38px 22px;
+      text-align:center;
+      border-right:1.5px solid var(--line);
+      position:relative;
+      overflow:hidden;
+      transition:.3s ease;
+    }
+
+    .srv-card:last-child{border-right:none}
+
+    .srv-card::after{
+      content:"";
+      position:absolute;
+      bottom:0;left:0;right:0;
+      height:3px;
+      background:linear-gradient(90deg,transparent,var(--gold),transparent);
+      transform:scaleX(0);
+      transition:.35s ease;
+    }
+
+    .srv-card:hover{
+      background:#fffdf0;
+      transform:translateY(-4px);
+    }
+
+    .srv-card:hover::after{transform:scaleX(1)}
+
+    .srv-icon{
+      width:64px;height:64px;
+      border-radius:50%;
+      border:1.5px solid rgba(240,201,58,.35);
+      background:rgba(240,201,58,.07);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:0 auto 18px;
+      font-size:25px;
+    }
+
+    .srv-card h3{
+      font-family:var(--serif);
+      font-size:17px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+
+    .srv-card p{
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.65;
+    }
+
+    .process-section{
+      background:var(--soft);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .process-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:0;
+      margin-top:64px;
+      position:relative;
+    }
+
+    .process-grid::before{
+      content:"";
+      position:absolute;
+      top:58px;
+      left:12%;
+      right:12%;
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(200,154,16,.34),transparent);
+    }
+
+    .step-card{
+      padding:0 26px;
+      position:relative;
+    }
+
+    .step-arrow{
+      position:absolute;
+      right:-8px;
+      top:26px;
+      color:rgba(200,154,16,.45);
+      font-size:18px;
+      z-index:2;
+    }
+
+    .step-card:last-child .step-arrow{display:none}
+
+    .step-ring{
+      width:72px;height:72px;
+      border:1px solid rgba(200,154,16,.28);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:25px;
+      background:#fff;
+      margin-bottom:24px;
+      position:relative;
+      box-shadow:0 14px 32px rgba(13,22,40,.06);
+    }
+
+    .step-badge{
+      position:absolute;
+      top:-7px;
+      right:-7px;
+      font-size:10px;
+      font-weight:900;
+      color:var(--gold-dark);
+      background:#fff;
+      border:1px solid rgba(200,154,16,.28);
+      border-radius:4px;
+      padding:2px 5px;
+    }
+
+    .step-card h3{
+      font-family:var(--serif);
+      font-size:23px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+
+    .step-card p{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .work-section{background:var(--white)}
+
+    .work-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+      margin-top:64px;
+    }
+
+    .work-card{
+      background:#fff;
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 12px 40px rgba(13,22,40,.08);
+      transition:.35s ease;
+      border:1px solid var(--line);
+    }
+
+    .work-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 25px 65px rgba(13,22,40,.14);
+    }
+
+    .work-img-wrap{
+      position:relative;
+      overflow:hidden;
+      height:205px;
+    }
+
+    .work-img-wrap img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:.45s ease;
+    }
+
+    .work-card:hover img{transform:scale(1.07)}
+
+    .work-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,transparent 42%,rgba(6,10,17,.75));
+      display:flex;
+      align-items:flex-end;
+      padding:16px;
+    }
+
+    .work-ready{
+      font-size:10px;
+      color:#22c55e;
+      font-weight:800;
+      display:flex;
+      align-items:center;
+      gap:5px;
+    }
+
+    .work-ready::before{
+      content:"●";
+      font-size:7px;
+    }
+
+    .work-info{
+      padding:17px 19px 21px;
+    }
+
+    .work-info h3{
+      font-family:var(--serif);
+      font-size:19px;
+      font-weight:700;
+      margin-bottom:5px;
+    }
+
+    .work-tag{
+      display:inline-block;
+      color:var(--gold-dark);
+      font-size:11px;
+      border:1px solid rgba(200,154,16,.35);
+      background:rgba(240,201,58,.06);
+      padding:3px 9px;
+      border-radius:4px;
+    }
+
+    .impact-section{
+      background:var(--soft);
+    }
+
+    .impact-box{
+      background:linear-gradient(135deg,#ffffff,#f8f9fc);
+      border:1.5px solid var(--line);
+      border-radius:20px;
+      padding:56px 50px;
+      display:grid;
+      grid-template-columns:1.4fr repeat(4,1fr);
+      gap:30px;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+      box-shadow:0 28px 80px rgba(13,22,40,.08);
+    }
+
+    .impact-box::after{
+      content:"";
+      position:absolute;
+      right:-80px;
+      bottom:-80px;
+      width:320px;
+      height:220px;
+      background:radial-gradient(circle,rgba(240,201,58,.20),transparent 65%);
+    }
+
+    .impact-box h2{
+      font-family:var(--serif);
+      font-size:39px;
+      line-height:1.15;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+
+    .impact-box > div:first-child p{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.75;
+    }
+
+    .impact-item{
+      border-left:1px solid var(--line);
+      padding-left:26px;
+      position:relative;
+      z-index:2;
+    }
+
+    .impact-icon{
+      width:46px;height:46px;
+      border-radius:11px;
+      background:rgba(240,201,58,.10);
+      border:1px solid rgba(200,154,16,.24);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:22px;
+      margin-bottom:14px;
+      color:var(--gold-dark);
+    }
+
+    .impact-item strong{
+      font-family:var(--serif);
+      font-size:19px;
+      font-weight:700;
+      display:block;
+      margin-bottom:7px;
+    }
+
+    .impact-item p{
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .testi-section{background:var(--white)}
+
+    .testi-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+      margin-top:64px;
+    }
+
+    .testi-card{
+      background:var(--soft);
+      border:1.5px solid var(--line);
+      border-radius:16px;
+      padding:34px;
+      position:relative;
+      overflow:hidden;
+      transition:.3s ease;
+    }
+
+    .testi-card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(200,154,16,.35);
+      box-shadow:0 20px 55px rgba(13,22,40,.08);
+    }
+
+    .stars{
+      color:var(--gold-dark);
+      letter-spacing:2px;
+      margin-bottom:16px;
+      font-size:13px;
+    }
+
+    .testi-card p{
+      color:#4a5568;
+      font-size:15px;
+      line-height:1.75;
+      margin-bottom:24px;
+    }
+
+    .testi-author{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .testi-av{
+      width:42px;height:42px;
+      border-radius:50%;
+      border:2px solid rgba(200,154,16,.32);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:var(--serif);
+      color:var(--gold-dark);
+      font-size:17px;
+      font-weight:700;
+      background:#fff;
+    }
+
+    .testi-name{
+      font-size:14px;
+      font-weight:800;
+    }
+
+    .testi-role{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .faq-section{background:var(--soft)}
+
+    .faq-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:64px;
+    }
+
+    .faq-item{
+      background:#fff;
+      border:1.5px solid var(--line);
+      border-radius:10px;
+      padding:22px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      cursor:pointer;
+      transition:.25s ease;
+    }
+
+    .faq-item:hover{
+      transform:translateX(4px);
+      border-color:rgba(200,154,16,.35);
+      background:#fffdf0;
+    }
+
+    .faq-item span{
+      font-size:15px;
+      font-weight:500;
+    }
+
+    .faq-plus{
+      color:var(--gold-dark);
+      font-size:21px;
+      font-weight:300;
+    }
+
+    .cta-section{
+      padding:90px 0;
+      background:linear-gradient(135deg,#ffffff,#f8f9fc);
+      border-top:1px solid var(--line);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .cta-section::before{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      width:620px;
+      height:300px;
+      background:radial-gradient(ellipse,rgba(240,201,58,.20),transparent 65%);
+    }
+
+    .cta-inner{
+      position:relative;
+      z-index:2;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:32px;
+    }
+
+    .cta-inner h2{
+      font-family:var(--serif);
+      font-size:clamp(30px,3.1vw,48px);
+      line-height:1.18;
+      font-weight:700;
+    }
+
+    .cta-inner p{
+      color:var(--muted);
+      font-size:16px;
+      margin-top:10px;
+      max-width:620px;
+    }
+
+    footer{
+      background:#04060a;
+      padding:70px 0 28px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.5fr 1fr 1fr 1fr;
+      gap:40px;
+      margin-bottom:50px;
+    }
+
+    footer .logo{color:#fff}
+
+    .footer-brand p{
+      color:rgba(255,255,255,.40);
+      font-size:14px;
+      margin-top:16px;
+      line-height:1.75;
+    }
+
+    footer h4{
+      color:rgba(255,255,255,.80);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:18px;
+    }
+
+    footer ul{list-style:none}
+
+    footer li{margin-bottom:10px}
+
+    footer li a, .footer-contact p{
+      color:rgba(255,255,255,.40);
+      font-size:14px;
+      transition:.25s ease;
+    }
+
+    footer li a:hover{color:var(--gold)}
+
+    .footer-divider{
+      height:1px;
+      background:rgba(255,255,255,.06);
+      margin-bottom:24px;
+    }
+
+    .copyright{
+      display:flex;
+      justify-content:space-between;
+      font-size:13px;
+      color:rgba(255,255,255,.24);
+    }
+
+    [data-fade]{
+      opacity:0;
+      transform:translateY(28px);
+      transition:opacity .75s ease, transform .75s ease;
+    }
+
+    [data-fade].visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media(max-width:980px){
+      nav a:not(.nav-cta){display:none}
+      .hero-inner{grid-template-columns:1fr;padding-top:48px}
+      .device-wrap{display:none}
+      .hero-trust,.services-grid,.process-grid,.work-grid,.impact-box,.testi-grid,.faq-grid,.footer-grid{grid-template-columns:1fr}
+      .srv-card{border-right:none;border-bottom:1.5px solid var(--line)}
+      .srv-card:last-child{border-bottom:none}
+      .process-grid::before,.step-arrow{display:none}
+      .impact-item{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:20px}
+      .cta-inner{flex-direction:column;text-align:center}
+      .copyright{flex-direction:column;gap:10px;text-align:center}
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <header>
-      <a href="index.html" class="logo"><div class="zmark">Z</div> ZETYL</a>
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#work">Our Work</a>
-        <a href="#about">About</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact" class="nav-btn">Request a Preview →</a>
-      </nav>
-    </header>
+  <header>
+    <a href="#" class="logo"><div class="zmark">Z</div> Zetyl</a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#work">Our Work</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="nav-cta">Request a Preview →</a>
+    </nav>
+  </header>
 
-    <section id="home" class="hero">
-      <div>
-        <div class="tag">✦ WEBSITES THAT DRIVE BOOKINGS & INQUIRIES</div>
-        <h1>Bringing Established Businesses Into Clear <span>Digital Visibility.</span></h1>
-        <p>Zetyl builds polished, search-ready websites that help established businesses earn trust, receive more inquiries, and turn visitors into bookings.</p>
+  <section class="hero">
+    <div class="hero-inner">
+      <div data-fade>
+        <div class="eyebrow">Websites That Drive Bookings & Inquiries</div>
+        <h1>Bringing Established Businesses Into <em>Clear Digital Visibility.</em></h1>
+        <p class="hero-desc">Zetyl builds polished, search-ready websites that help established businesses earn trust, receive more inquiries, and turn visitors into bookings.</p>
 
-        <div class="hero-actions">
-          <a href="#contact" class="btn">Request a Preview →</a>
-          <a href="#process" class="play"><div class="play-circle">▶</div><span>See how it works<br><small>2 min overview</small></span></a>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-gold">Request a Preview →</a>
+          <a href="#process" class="btn-text">
+            <div class="play-circle">▶</div>
+            <span>See how it works<br><small style="color:#64748B;font-weight:400;">2 min overview</small></span>
+          </a>
         </div>
 
-        <div class="trust-row">
-          <div class="trust-item"><span>✓</span><div><strong>Preview First</strong>See before you decide</div></div>
-          <div class="trust-item"><span>🔒</span><div><strong>No Long-Term Contracts</strong>One-time payment</div></div>
-          <div class="trust-item"><span>⚡</span><div><strong>Built for Results</strong>More inquiries & bookings</div></div>
-          <div class="trust-item"><span>◆</span><div><strong>Secure & Reliable</strong>Fast, safe, always online</div></div>
+        <div class="hero-trust">
+          <div class="trust-item"><div class="trust-icon">✓</div><div><strong>Preview First</strong>See before you decide</div></div>
+          <div class="trust-item"><div class="trust-icon">🔒</div><div><strong>No Long-Term Contracts</strong>One-time payment</div></div>
+          <div class="trust-item"><div class="trust-icon">⚡</div><div><strong>Built for Results</strong>More inquiries & bookings</div></div>
+          <div class="trust-item"><div class="trust-icon">◆</div><div><strong>Secure & Reliable</strong>Fast, safe, always online</div></div>
         </div>
       </div>
 
-      <div class="device-wrap">
+      <div class="device-wrap" data-fade style="transition-delay:.2s">
         <div class="gold-ring"></div>
 
-        <div class="laptop">
-          <div class="screen">
-            <small>Sparkle Clean</small>
-            <h3>Professional Cleaning Services You Can Rely On</h3>
-            <p>Reliable cleaning for homes and offices.</p>
-            <span class="mini-btn">Book a Service</span>
+        <div class="float-card">
+          <div class="fc-row"><div class="fc-dot"></div><div class="fc-text">Live Preview Ready</div></div>
+          <div class="fc-num">+340%</div>
+          <div class="fc-sub">avg. increase in client inquiries</div>
+        </div>
 
-            <div class="screen-icons">
-              <span><b>⌂</b>Residential</span>
-              <span><b>▦</b>Commercial</span>
-              <span><b>◇</b>Trusted Team</span>
-              <span><b>✓</b>Guaranteed</span>
-              <span><b>↗</b>Move-In/Out</span>
+        <div class="laptop-shell">
+          <div class="screen-wrap">
+            <div class="browser-bar">
+              <div class="bd r"></div><div class="bd y"></div><div class="bd g"></div>
+              <div class="url-bar">zetyl.com</div>
+            </div>
+
+            <div class="screen-body">
+              <div class="sc-top">
+                <div class="sc-brand"><div class="sc-z">Z</div><div class="sc-name">Zetyl</div></div>
+                <div class="sc-links"><span>Services</span><span>Process</span><span>Work</span><span>FAQ</span></div>
+                <div class="sc-nav-btn">Get a Preview</div>
+              </div>
+
+              <div class="sc-label">✦ Website Design Studio</div>
+              <div class="sc-title">Websites That Win Customers For Your Business</div>
+              <div class="sc-sub">We build polished, booking-ready websites for established service businesses — starting with a live preview.</div>
+              <div class="sc-btn">Request a Preview →</div>
+
+              <div class="sc-services">
+                <div class="sc-srv"><span>🖥️</span><small>Service</small><b>Web Design</b></div>
+                <div class="sc-srv"><span>📅</span><small>Service</small><b>Booking</b></div>
+                <div class="sc-srv"><span>🔎</span><small>Service</small><b>SEO</b></div>
+                <div class="sc-srv"><span>🎧</span><small>Service</small><b>Support</b></div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="phone">
+        <div class="phone-shell">
+          <div class="phone-notch"></div>
           <div class="phone-screen">
-            <small>Sparkle Clean</small>
-            <h4>A Cleaner Space, A Better Place to Be.</h4>
-            <span class="mini-btn">Book Now</span>
+            <div class="ps-label">✦ ZETYL</div>
+            <div class="ps-title">Your Business Deserves a Better Website.</div>
+            <div class="ps-sub">Preview first. No commitment required.</div>
+            <div class="ps-btn">Get a Preview</div>
+
+            <div class="ps-stats">
+              <div class="ps-stat"><div class="ps-dot"></div><span>Custom Design</span></div>
+              <div class="ps-stat"><div class="ps-dot"></div><span>SEO Optimized</span></div>
+              <div class="ps-stat"><div class="ps-dot"></div><span>Booking Ready</span></div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="scroll-cue">
-        <div class="mouse"></div>
-        SCROLL TO EXPLORE
-      </div>
-    </section>
-  </div>
-
-  <section class="white" id="services">
+  <section id="services" class="services-section">
     <div class="container">
-      <div class="section-title">
-        <small>WE BUILD WEBSITES THAT WORK FOR YOUR BUSINESS</small>
-        <h2>Websites That Drive Bookings & Inquiries</h2>
+      <div class="section-head" data-fade>
+        <div class="section-label">What We Build</div>
+        <h2 class="section-h2">Websites That Work<br>For Your Business</h2>
+        <p class="section-sub">Every site we build is structured to convert visitors into real customer inquiries — not just sit online looking pretty.</p>
       </div>
 
-      <div class="services">
-        <div class="service"><div class="icon">🖥️</div><h3>Custom Website Design</h3><p>Modern, professional websites that reflect your brand and build instant trust.</p></div>
-        <div class="service"><div class="icon">📅</div><h3>Booking & Contact Integration</h3><p>Make it easy for customers to book services or get in touch with you.</p></div>
-        <div class="service"><div class="icon">🔎</div><h3>SEO & Local Optimization</h3><p>We structure your site so customers can find you on Google and search engines.</p></div>
-        <div class="service"><div class="icon">⚡</div><h3>Fast, Secure & Reliable</h3><p>Speed-optimized, mobile-friendly websites that are secure and built to last.</p></div>
-        <div class="service"><div class="icon">🎧</div><h3>Ongoing Support</h3><p>We’re here when you need updates, help, or guidance as your business grows.</p></div>
+      <div class="services-grid" data-fade>
+        <div class="srv-card"><div class="srv-icon">🖥️</div><h3>Custom Website Design</h3><p>Modern, professional websites that reflect your business and build instant trust.</p></div>
+        <div class="srv-card"><div class="srv-icon">📅</div><h3>Booking & Contact Integration</h3><p>Make it effortless for customers to book your services or reach you quickly.</p></div>
+        <div class="srv-card"><div class="srv-icon">🔎</div><h3>SEO & Local Optimization</h3><p>Structure your site so the right customers can find you online.</p></div>
+        <div class="srv-card"><div class="srv-icon">⚡</div><h3>Fast, Secure & Reliable</h3><p>Speed-optimized, mobile-friendly, and built for real performance.</p></div>
+        <div class="srv-card"><div class="srv-icon">🎧</div><h3>Ongoing Support</h3><p>Help with updates, guidance, and improvements as your business grows.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="dark-section" id="process">
+  <section id="process" class="process-section">
     <div class="container">
-      <div class="section-title">
-        <small>OUR PROCESS</small>
-        <h2>Preview First. Decide With Confidence.</h2>
+      <div class="section-head" data-fade>
+        <div class="section-label">Our Process</div>
+        <h2 class="section-h2">Preview First.<br>Decide With Confidence.</h2>
+        <p class="section-sub">You see a real website direction for your business before moving forward.</p>
       </div>
 
-      <div class="process">
-        <div class="step"><div class="step-circle">⌕</div><div class="num">01</div><h3>We Discover</h3><p>We learn about your business, your goals, and your customers.</p></div>
-        <div class="step"><div class="step-circle">▣</div><div class="num">02</div><h3>We Build a Live Preview</h3><p>We build a live, interactive preview of your website for you.</p></div>
-        <div class="step"><div class="step-circle">☰</div><div class="num">03</div><h3>You Review & Decide</h3><p>You explore the preview and share feedback or approve.</p></div>
-        <div class="step"><div class="step-circle">🚀</div><div class="num">04</div><h3>We Build & Launch</h3><p>We build, test, and launch your website — ready for your customers.</p></div>
+      <div class="process-grid" data-fade>
+        <div class="step-card"><div class="step-arrow">→</div><div class="step-ring"><span>⌕</span><div class="step-badge">01</div></div><h3>We Discover</h3><p>We understand your business, your customers, and the services you provide.</p></div>
+        <div class="step-card"><div class="step-arrow">→</div><div class="step-ring"><span>▣</span><div class="step-badge">02</div></div><h3>We Build a Preview</h3><p>You receive a live preview that shows how your website could look and work.</p></div>
+        <div class="step-card"><div class="step-arrow">→</div><div class="step-ring"><span>☰</span><div class="step-badge">03</div></div><h3>You Review</h3><p>You explore the preview, give feedback, and decide with clarity.</p></div>
+        <div class="step-card"><div class="step-ring"><span>🚀</span><div class="step-badge">04</div></div><h3>We Launch</h3><p>We finalize, test, and launch your website for real customers.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="white" id="work">
+  <section id="work" class="work-section">
     <div class="container">
-      <div class="section-title">
-        <small>CONCEPT PREVIEWS</small>
-        <h2>Real Website Concepts. Built for Real Businesses.</h2>
-        <p>Each concept is a real website preview — built to show the quality and results we deliver.</p>
+      <div class="section-head" data-fade>
+        <div class="section-label">Concept Previews</div>
+        <h2 class="section-h2">Real Concepts.<br>Built for Real Businesses.</h2>
+        <p class="section-sub">Each preview is designed to show the quality, clarity, and conversion structure we deliver.</p>
       </div>
 
-      <div class="concepts">
-        <div class="concept-card"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80"><h3>Auto Detailing (Concept)</h3><div class="ready">✓ Ready to deploy</div></div>
-        <div class="concept-card"><img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=900&q=80"><h3>Landscaping (Concept)</h3><div class="ready">✓ Ready to deploy</div></div>
-        <div class="concept-card"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=80"><h3>Barbershop (Concept)</h3><div class="ready">✓ Ready to deploy</div></div>
-        <div class="concept-card"><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=900&q=80"><h3>Cleaning Service (Concept)</h3><div class="ready">✓ Ready to deploy</div></div>
+      <div class="work-grid" data-fade>
+        <div class="work-card"><div class="work-img-wrap"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&q=80&fit=crop"><div class="work-overlay"><div class="work-ready">Ready to deploy</div></div></div><div class="work-info"><h3>Auto Detailing</h3><span class="work-tag">Concept Preview</span></div></div>
+        <div class="work-card"><div class="work-img-wrap"><img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=900&q=80&fit=crop"><div class="work-overlay"><div class="work-ready">Ready to deploy</div></div></div><div class="work-info"><h3>Landscaping</h3><span class="work-tag">Concept Preview</span></div></div>
+        <div class="work-card"><div class="work-img-wrap"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=900&q=80&fit=crop"><div class="work-overlay"><div class="work-ready">Ready to deploy</div></div></div><div class="work-info"><h3>Barbershop</h3><span class="work-tag">Concept Preview</span></div></div>
+        <div class="work-card"><div class="work-img-wrap"><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=900&q=80&fit=crop"><div class="work-overlay"><div class="work-ready">Ready to deploy</div></div></div><div class="work-info"><h3>Cleaning Service</h3><span class="work-tag">Concept Preview</span></div></div>
       </div>
 
-      <div class="concept-btn">
-        <a href="#contact" class="btn">View More Concepts →</a>
+      <div style="text-align:center;margin-top:44px;" data-fade>
+        <a href="#contact" class="btn-gold">View More Concepts →</a>
       </div>
     </div>
   </section>
 
-  <section class="white">
-    <div class="container">
+  <section class="impact-section">
+    <div class="container" data-fade>
       <div class="impact-box">
         <div>
-          <small style="color:#ffd400;font-weight:900;">THE REAL IMPACT OF A PROFESSIONAL WEBSITE</small>
+          <div class="section-label">The Real Impact</div>
           <h2>A strong website does more than just look good.</h2>
-          <p>It builds trust, opens doors, and makes it easy for the right customers to choose you.</p>
+          <p>It builds trust, opens doors, and makes it easier for the right customers to choose you.</p>
         </div>
-
-        <div class="impact-item"><span class="impact-icon">☀</span><strong>More Visibility</strong><p>Show up where customers are searching.</p></div>
-        <div class="impact-item"><span class="impact-icon">🛡</span><strong>More Trust</strong><p>Look professional. Build confidence.</p></div>
-        <div class="impact-item"><span class="impact-icon">☏</span><strong>More Inquiries</strong><p>Make it easy for customers to reach you.</p></div>
-        <div class="impact-item"><span class="impact-icon">▣</span><strong>More Bookings</strong><p>Turn visitors into paying customers.</p></div>
+        <div class="impact-item"><div class="impact-icon">☀️</div><strong>More Visibility</strong><p>Show up where customers are searching.</p></div>
+        <div class="impact-item"><div class="impact-icon">🛡️</div><strong>More Trust</strong><p>Look professional before a call is made.</p></div>
+        <div class="impact-item"><div class="impact-icon">📞</div><strong>More Inquiries</strong><p>Make it easy for customers to reach you.</p></div>
+        <div class="impact-item"><div class="impact-icon">📈</div><strong>More Bookings</strong><p>Turn visitors into real customers.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="white">
+  <section class="testi-section">
     <div class="container">
-      <div class="section-title"><small>WHAT OUR CLIENTS SAY</small></div>
-      <div class="testimonials">
-        <div class="testimonial"><div class="stars">★★★★★</div><p>“Zetyl built a website that looks amazing and brings in new customers every week.”</p><br><strong>— Marcus J.</strong><p>Auto Detailing Business</p></div>
-        <div class="testimonial"><div class="stars">★★★★★</div><p>“The live preview process gave me total confidence. Highly professional team.”</p><br><strong>— Sarah L.</strong><p>Landscaping Business</p></div>
-        <div class="testimonial"><div class="stars">★★★★★</div><p>“Our booking system works perfectly and saves us so much time.”</p><br><strong>— David R.</strong><p>Cleaning Service Owner</p></div>
+      <div class="section-head" data-fade style="text-align:center;">
+        <div class="section-label" style="justify-content:center;">Client Results</div>
+        <h2 class="section-h2">What Our Clients Say</h2>
+      </div>
+
+      <div class="testi-grid" data-fade>
+        <div class="testi-card"><div class="stars">★★★★★</div><p>"Zetyl built a website that looks amazing and brings in new customers every single week."</p><div class="testi-author"><div class="testi-av">M</div><div><div class="testi-name">Marcus J.</div><div class="testi-role">Auto Detailing Business Owner</div></div></div></div>
+        <div class="testi-card"><div class="stars">★★★★★</div><p>"The live preview process gave me total confidence. Highly professional."</p><div class="testi-author"><div class="testi-av">S</div><div><div class="testi-name">Sarah L.</div><div class="testi-role">Landscaping Business Owner</div></div></div></div>
+        <div class="testi-card"><div class="stars">★★★★★</div><p>"Our booking system works perfectly and saves us hours every week."</p><div class="testi-author"><div class="testi-av">D</div><div><div class="testi-name">David R.</div><div class="testi-role">Cleaning Service Owner</div></div></div></div>
       </div>
     </div>
   </section>
 
-  <section class="dark-section" id="faq">
+  <section id="faq" class="faq-section">
     <div class="container">
-      <div class="section-title"><small>COMMON QUESTIONS</small><h2>Quick answers to common questions.</h2></div>
-      <div class="faq-grid">
-        <div class="faq"><span>How does the live preview work?</span><strong>+</strong></div>
-        <div class="faq"><span>Do I need to provide content and images?</span><strong>+</strong></div>
-        <div class="faq"><span>How long does it take to build my website?</span><strong>+</strong></div>
-        <div class="faq"><span>Is there a monthly fee?</span><strong>+</strong></div>
+      <div class="section-head" data-fade>
+        <div class="section-label">Common Questions</div>
+        <h2 class="section-h2">Quick Answers to<br>Common Questions.</h2>
+      </div>
+
+      <div class="faq-grid" data-fade>
+        <div class="faq-item"><span>How does the live preview work?</span><span class="faq-plus">+</span></div>
+        <div class="faq-item"><span>Do I need to provide content and images?</span><span class="faq-plus">+</span></div>
+        <div class="faq-item"><span>How long does it take to build my website?</span><span class="faq-plus">+</span></div>
+        <div class="faq-item"><span>Is there a monthly fee?</span><span class="faq-plus">+</span></div>
+        <div class="faq-item"><span>What kinds of businesses do you work with?</span><span class="faq-plus">+</span></div>
+        <div class="faq-item"><span>Can you update my site after it launches?</span><span class="faq-plus">+</span></div>
       </div>
     </div>
   </section>
 
-  <section class="cta" id="contact">
+  <section id="contact" class="cta-section">
     <div class="container">
-      <div>
-        <h2>Ready to bring your business into clear digital visibility?</h2>
-        <p>Request your live preview today and see the difference Zetyl can make.</p>
+      <div class="cta-inner" data-fade>
+        <div>
+          <h2>Ready to bring your business into clear digital visibility?</h2>
+          <p>Request your live preview today — see the difference Zetyl makes before you commit to anything.</p>
+        </div>
+        <a href="mailto:hello@zetyl.com" class="btn-gold" style="white-space:nowrap;">Request a Preview →</a>
       </div>
-      <a href="mailto:hello@zetyl.com" class="btn">Request a Preview →</a>
     </div>
   </section>
 
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div>
-          <div class="logo"><div class="zmark">Z</div> ZETYL</div>
-          <p>We help established service businesses build professional websites that bring more visibility, trust, and customer inquiries.</p>
+        <div class="footer-brand">
+          <a href="#" class="logo"><div class="zmark">Z</div> Zetyl</a>
+          <p>We help established service businesses build professional websites that bring more visibility, trust, and customer inquiries — starting with a live preview.</p>
         </div>
-        <div><h4>Quick Links</h4><ul><li>Home</li><li>Services</li><li>Process</li><li>Our Work</li><li>FAQ</li></ul></div>
-        <div><h4>Services</h4><ul><li>Website Design</li><li>Booking Integration</li><li>SEO Optimization</li><li>Maintenance & Support</li></ul></div>
-        <div><h4>Contact Us</h4><p>hello@zetyl.com</p><p>Worcester, MA</p><p>zetyl.com</p></div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul><li><a href="#">Home</a></li><li><a href="#services">Services</a></li><li><a href="#process">Process</a></li><li><a href="#work">Our Work</a></li><li><a href="#faq">FAQ</a></li></ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul><li><a href="#">Website Design</a></li><li><a href="#">Booking Integration</a></li><li><a href="#">SEO Optimization</a></li><li><a href="#">Maintenance & Support</a></li></ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p>hello@zetyl.com</p>
+          <p>Worcester, MA</p>
+          <p style="color:var(--gold);margin-top:6px;">zetyl.com</p>
+        </div>
       </div>
-      <div class="copyright">© 2026 Zetyl. All rights reserved.</div>
+
+      <div class="footer-divider"></div>
+      <div class="copyright">
+        <span>© 2026 Zetyl. All rights reserved.</span>
+        <span>A Calvra Group Company</span>
+      </div>
     </div>
   </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    },{threshold:.1});
+
+    document.querySelectorAll('[data-fade]').forEach(el=>obs.observe(el));
+
+    document.querySelectorAll('.faq-item').forEach(item=>{
+      item.addEventListener('click',()=>{
+        const p = item.querySelector('.faq-plus');
+        p.textContent = p.textContent === '+' ? '−' : '+';
+        item.style.borderColor = p.textContent === '−' ? 'rgba(200,154,16,.45)' : '';
+      });
+    });
+  </script>
 </body>
 </html>
